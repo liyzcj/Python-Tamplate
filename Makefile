@@ -22,7 +22,7 @@ format:
 
 ## Run lint check
 lint:
-	python -m flake8 src tests
+	python -m flake8 --max-line-length=89 src tests
 
 ## Run mypy type checking
 type_checking:
