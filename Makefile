@@ -17,8 +17,8 @@ dev:
 
 ## Run black & isort formatting
 format:
-	isort --profile black src tests
 	black src tests
+	isort --profile black src tests
 
 ## Run lint check
 lint:
