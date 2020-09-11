@@ -4,11 +4,11 @@
 # COMMANDS                                                                      #
 #################################################################################
 
-# TODO document; pypi package;
+# TODO document; pypi package; clean python cache;
 
 ## Execute unit tests
 test:
-	pytest --cov src tests/
+	python -m pytest --cov src tests/
 
 ## Install develop environment.
 dev:
@@ -17,16 +17,15 @@ dev:
 
 ## Run black & isort formatting
 format:
-	black src tests
-	isort --profile black src tests
+	python -m black src tests
 
 ## Run lint check
 lint:
-	python -m flake8 --max-line-length=89 src tests
+	python -m flake8 --max-line-length=89 --ignore=W503,E203 src tests
 
 ## Run mypy type checking
 type_checking:
-	mypy src
+	python -m mypy .
 
 ## Install visions locally in editable mode
 install:
@@ -35,6 +34,7 @@ install:
 
 ## format, lint, type check, install, and finally test
 all:
+	make dev
 	make format
 	make lint
 	make type_checking
