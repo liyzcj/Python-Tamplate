@@ -8,29 +8,28 @@
 
 ## Execute unit tests
 test:
-	python -m pytest --cov src tests/
+	python -m pytest
 
 ## Install develop environment.
 dev:
 	pip install -r requirements-dev.txt
-	pip install -e .
 
 ## Run black & isort formatting
 format:
 	python -m black src tests
+	python -m isort src tests
 
 ## Run lint check
 lint:
-	python -m flake8 --max-line-length=89 --ignore=W503,E203 src tests
+	python -m flake8 src tests
 
 ## Run mypy type checking
 type_checking:
-	python -m mypy .
+	python -m mypy
 
 ## Install visions locally in editable mode
 install:
 	pip install -e .
-
 
 ## format, lint, type check, install, and finally test
 all:
