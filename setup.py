@@ -10,92 +10,80 @@ here = pathlib.Path(__file__).parent.resolve()
 # Get the long description from the README file
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
-# Arguments marked as "Required" below must be included for upload to PyPI.
-# Fields marked as "Optional" may be commented out.
+# “必填” 表示必须填写才能上传 PyPI。
+# “可选” 表示可以注释不填写。
 
 setup(
-    # This is the name of your project. The first time you publish this
-    # package, this name will be registered for you. It will determine how
-    # users can install this project, e.g.:
+    # 该项目的名称，这会决定用户如何安装这个包。例如：
     #
     # $ pip install sampleproject
     #
-    # And where it will live on PyPI: https://pypi.org/project/sampleproject/
+    # 这个名字会作为 PyPI 项目网址的一部分: https://pypi.org/project/sampleproject/
     #
-    # There are some restrictions on what makes a valid project name
-    # specification here:
+    # 命名规范如下
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='sampleproject',  # Required
+    name='sampleproject',  # 必填
 
-    # Versions should comply with PEP 440:
+    # 版本号应该符合 PEP 440 的规定:
     # https://www.python.org/dev/peps/pep-0440/
     #
-    # For a discussion on single-sourcing the version across setup.py and the
-    # project code, see
+    # 关于如何做到代码与 setup.py 文件中的版本一致性，可以查看：
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.0.0',  # Required
+    version='1.0.0',  # 必填
 
-    # This is a one-line description or tagline of what your project does. This
-    # corresponds to the "Summary" metadata field:
+    # 项目的简短描述. 对应着元数据字段 "Summary":
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='A sample Python project',  # Optional
+    description='A sample Python project',  # 可选
 
-    # This is an optional longer description of your project that represents
-    # the body of text which users will see when they visit PyPI.
+    # 项目长文描述，可以选择填写。这会在 PyPI 的项目主页中显示。
     #
-    # Often, this is the same as your README, so you can just read it in from
-    # that file directly (as we have already done above)
+    # 通常情况下，这个内容和项目中的 README 内容一致，所以这里直接读取 README 中的内容。
     #
-    # This field corresponds to the "Description" metadata field:
+    # 这一项对应项目元数据中的 "Description":
     # https://packaging.python.org/specifications/core-metadata/#description-optional
-    long_description=long_description,  # Optional
+    long_description=long_description,  # 可选
 
-    # Denotes that our long_description is in Markdown; valid values are
+    # 决定上面的长描述的文本类型，这会决定 PyPI 如何渲染文本。可以选择的文本类型有：
     # text/plain, text/x-rst, and text/markdown
     #
-    # Optional if long_description is written in reStructuredText (rst) but
-    # required for plain-text or Markdown; if unspecified, "applications should
-    # attempt to render [the long_description] as text/x-rst; charset=UTF-8 and
-    # fall back to text/plain if it is not valid rst" (see link below)
+    # 【 如果长描述是使用 reStructuredText (rst) 编写的，则可以省略这个选项，如果不是则必须填写，
+    #    因为如果不指定, 应用会尝试使用 text/x-rst; charset=UTF-8 的格式渲染，如果不符合 rst 语法
+    #    则会尝试 text/plain 渲染。】
     #
-    # This field corresponds to the "Description-Content-Type" metadata field:
+    # 这个参数对应元数据中的 "Description-Content-Type" 字段:
     # https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
-    long_description_content_type='text/markdown',  # Optional (see note above)
+    long_description_content_type='text/markdown',  # 可选（rst）
 
-    # This should be a valid link to your project's main homepage.
+    # 项目的主页。
     #
-    # This field corresponds to the "Home-Page" metadata field:
+    # 这个参数对应着元数据中的 "Home-Page" 字段:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    # url='https://github.com/pypa/sampleproject',  # Optional
+    # url='https://github.com/pypa/sampleproject',  # 可选
 
-    # This should be your name or the name of the organization which owns the
-    # project.
-    # author='A. Random Developer',  # Optional
+    # 作者的名称，或者拥有该项目的组织。
+    # author='A. Random Developer',  # 可选
 
-    # This should be a valid email address corresponding to the author listed
-    # above.
-    # author_email='author@example.com',  # Optional
+    # 作者或者组织的邮箱。
+    # author_email='author@example.com',  # 可选
 
-    # Classifiers help users find your project by categorizing it.
+    # 项目的分类，这可以帮助用户在 PyPI 中根据类别找到这个项目。
     #
-    # For a list of valid classifiers, see https://pypi.org/classifiers/
-    classifiers=[  # Optional
-        # How mature is this project? Common values are
+    # 查看 https://pypi.org/classifiers/ 可以获取所有的类别。
+    classifiers=[  # 可选
+        # 项目的阶段，可以填的值有：
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
         'Development Status :: 3 - Alpha',
 
-        # Indicate who your project is intended for
+        # 表明该项目的受众，以及项目的相关主题。
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
 
-        # Pick your license as you wish
+        # 选择一个可用的 License。
         'License :: OSI Approved :: MIT License',
 
-        # Specify the Python versions you support here. In particular, ensure
-        # that you indicate you support Python 3. These classifiers are *not*
-        # checked by 'pip install'. See instead 'python_requires' below.
+        # 指定支持的 Python 版本，确保你支持 Python3。【安装时不会检查，仅仅作为分类使用】
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
@@ -104,92 +92,73 @@ setup(
         'Programming Language :: Python :: 3 :: Only',
     ],
 
-    # This field adds keywords for your project which will appear on the
-    # project page. What does your project relate to?
+    # 项目的相关关键字。
     #
-    # Note that this is a list of additional keywords, separated
-    # by commas, to be used to assist searching for the distribution in a
-    # larger catalog.
-    keywords='sample, setuptools, development',  # Optional
+    # 关键字可以指定多个，由逗号隔开。关键字可以帮助用户找到需要的工具。
+    keywords='sample, setuptools, development',  # 可选
 
-    # When your source code is in a subdirectory under the project root, e.g.
-    # `src/`, it is necessary to specify the `package_dir` argument.
-    package_dir={'': 'src'},  # Optional
+    # 当你的源代码不在根目录，而在一个子目录中, 例如
+    # 代码在目录 `src/` 中，那么就必须指定这个参数。
+    package_dir={'': 'src'},  # 可选
 
-    # You can just specify package directories manually here if your project is
-    # simple. Or you can use find_packages().
+    # 如果你的项目比较简单，则可以手动指定包含的 Module，但是通常使用 find_packages() 自动查找。
     #
-    # Alternatively, if you just want to distribute a single Python file, use
-    # the `py_modules` argument instead as follows, which will expect a file
-    # called `my_module.py` to exist:
+    # 此外，如果你仅仅想发布一个 Python 文件或着说 Module，则应该使用参数 `py_modules`，例如
+    # 如果要添加一个名称为 `my_module.py` 的文件：
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(where='src'),  # Required
+    packages=find_packages(where='src'),  # 必填
 
-    # Specify which Python versions you support. In contrast to the
-    # 'Programming Language' classifiers above, 'pip install' will check this
-    # and refuse to install the project if the version does not match. See
+    # 指定支持的 Python 版本，和上面的分类不同，这个会在 'pip install' 时进行版本检查。
     # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-    python_requires='>=3.5, <4',
+    python_requires='>=3.5, <4',  # 必填
 
-    # This field lists other packages that your project depends on to run.
-    # Any package you put here will be installed by pip when your project is
-    # installed, so they must be valid existing projects.
+    # 这个参数用来指定当前项目依赖的其他 Python 项目。
+    # 所有的项目必须可以使用 pip 安装，并且是有效的 Python 项目。
     #
-    # For an analysis of "install_requires" vs pip's requirements files see:
+    # 一个比较 "install_requires" vs pip's requirements files 的文章:
     # https://packaging.python.org/en/latest/requirements.html
-    # install_requires=['peppercorn'],  # Optional
+    # install_requires=['peppercorn'],  # 可选
 
-    # List additional groups of dependencies here (e.g. development
-    # dependencies). Users will be able to install these using the "extras"
-    # syntax, for example:
+    # 在这里列出额外的依赖 (例如，开发依赖、测试依赖)，用户可以使用 "extras" 语法来安装这些依赖，例如：
     #
     #   $ pip install sampleproject[dev]
     #
-    # Similar to `install_requires` above, these must be valid existing
-    # projects.
-    # extras_require={  # Optional
+    # extras_require={  # 可选
     #     'dev': ['check-manifest'],
     #     'test': ['coverage'],
     # },
 
-    # If there are data files included in your packages that need to be
-    # installed, specify them here.
-    # package_data={  # Optional
+    # 如果有一些其他的数据文件需要和项目一起打包，则需要在这里指定。
+    # package_data={  # 可选
     #     'sample': ['package_data.dat'],
     # },
 
-    # Although 'package_data' is the preferred approach, in some case you may
-    # need to place data files outside of your packages. See:
+    # 尽管 'package_data' 是比较推荐的添加数据的方法, 有时候你仍然需要在项目外部添加数据。查看:
     # http://docs.python.org/distutils/setupscript.html#installing-additional-files
     #
-    # In this case, 'data_file' will be installed into '<sys.prefix>/my_data'
-    # data_files=[('my_data', ['data/data_file'])],  # Optional
+    # 这种情况下， 'data_file' 会被安装到 '<sys.prefix>/my_data' 目录下。
+    # data_files=[('my_data', ['data/data_file'])],  # 可选
 
-    # To provide executable scripts, use entry points in preference to the
-    # "scripts" keyword. Entry points provide cross-platform support and allow
-    # `pip` to create the appropriate form of executable for the target
-    # platform.
+    # 如果要添加一个可执行的命令行脚本，则应该倾向使用 'entry_points' 而不是 'scripts' 参数。
+    # Entry points 提供了跨平台的支持。
     #
-    # For example, the following would provide a command called `sample` which
-    # executes the function `main` from this package when invoked:
-    # entry_points={  # Optional
+    # 例如，下面的参数会添加命令 `sample`，这个命令会指定 'sample' 中的 'main' 函数:
+    # entry_points={  # 可选
     #     'console_scripts': [
     #         'sample=sample:main',
     #     ],
     # },
 
-    # List additional URLs that are relevant to your project as a dict.
+    # 列出额外的 URL 地址，以字典的形式提供。
     #
-    # This field corresponds to the "Project-URL" metadata fields:
+    # 这个字段对应项目元数据中的 "Project-URL" 字段:
     # https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
     #
-    # Examples listed include a pattern for specifying where the package tracks
-    # issues, where the source is hosted, where to say thanks to the package
-    # maintainers, and where to support the project financially. The key is
-    # what's used to render the link text on PyPI.
-    # project_urls={  # Optional
+    # 下面这个例子中包含了 Bug 报告的地址，源代码的地址，感谢的地址，以及项目资金支持的地址。
+    # 字典中的 Key 会作为链接 🔗 显示在 PyPI 中。
+    # project_urls={  # 可选
     #     'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
     #     'Funding': 'https://donate.pypi.org',
     #     'Say Thanks!': 'http://saythanks.io/to/example',
