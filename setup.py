@@ -106,7 +106,7 @@ setup(
     # 项目的相关关键字。
     #
     # 关键字可以指定多个，由逗号隔开。关键字可以帮助用户找到需要的工具。
-    keywords='sample, setuptools, development',  # 可选
+    # keywords='sample, setuptools, development',  # 可选
 
     # 当你的源代码不在根目录，而在一个子目录中, 例如
     # 代码在目录 `src/` 中，那么就必须指定这个参数。
