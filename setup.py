@@ -12,7 +12,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 # Get About for project.
 about: dict = {}
-with open("src/sample/__about__.py") as fp:
+with open(here / "src/sample/__about__.py") as fp:
     exec(fp.read(), about)
 
 
