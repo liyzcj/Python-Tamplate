@@ -5,3 +5,4 @@ flake8-bugbear
 black
 isort
 mypy
+devtools[pygments]
