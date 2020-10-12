@@ -123,7 +123,7 @@ setup(
 
     # 指定支持的 Python 版本，和上面的分类不同，这个会在 'pip install' 时进行版本检查。
     # https://packaging.python.org/guides/distributing-packages-using-setuptools/#python-requires
-    python_requires='>=3.5, <4',  # 必填
+    python_requires='>=3.6, <4',  # 必填
 
     # 这个参数用来指定当前项目依赖的其他 Python 项目。
     # 所有的项目必须可以使用 pip 安装，并且是有效的 Python 项目。
