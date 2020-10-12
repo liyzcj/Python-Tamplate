@@ -10,6 +10,12 @@ here = pathlib.Path(__file__).parent.resolve()
 # Get the long description from the README file
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
+# Get About for project.
+about: dict = {}
+with open("src/sample/__about__.py") as fp:
+    exec(fp.read(), about)
+
+
 # “必填” 表示必须填写才能上传 PyPI。
 # “可选” 表示可以注释不填写。
 
@@ -29,7 +35,13 @@ setup(
     #
     # 关于如何做到代码与 setup.py 文件中的版本一致性，可以查看：
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.0.0',  # 必填
+    version=about['__version__'],  # 必填
+
+    # 项目作者或者组织
+    author=about['__author__'],  # 可选
+
+    # 项目持有者的电子邮箱
+    author_email=about['__email__'],  # 可选
 
     # 项目的简短描述. 对应着元数据字段 "Summary":
     # https://packaging.python.org/specifications/core-metadata/#summary
@@ -85,7 +97,6 @@ setup(
 
         # 指定支持的 Python 版本，确保你支持 Python3。【安装时不会检查，仅仅作为分类使用】
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
