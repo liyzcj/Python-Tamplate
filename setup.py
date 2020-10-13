@@ -72,12 +72,6 @@ setup(
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
     # url='https://github.com/pypa/sampleproject',  # 可选
 
-    # 作者的名称，或者拥有该项目的组织。
-    # author='A. Random Developer',  # 可选
-
-    # 作者或者组织的邮箱。
-    # author_email='author@example.com',  # 可选
-
     # 项目的分类，这可以帮助用户在 PyPI 中根据类别找到这个项目。
     #
     # 查看 https://pypi.org/classifiers/ 可以获取所有的类别。
