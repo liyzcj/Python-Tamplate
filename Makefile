@@ -4,7 +4,7 @@
 # COMMANDS                                                                      #
 #################################################################################
 
-# TODO document; pypi package; clean python cache;
+# TODO document; pypi package;
 
 ## Clean python cache file.
 clean:
@@ -13,6 +13,7 @@ clean:
 	find . -name __pycache__ -delete
 	find . -name '*~' -delete
 	find . -name .coverage -delete
+	find . -name cov.xml -delete
 	find . -type d -name .pytest_cache -exec rm -r {} +
 	find . -type d -name .mypy_cache -exec rm -r {} +
 

@@ -136,5 +136,8 @@ dmypy.json
 .idea
 .vscode
 
+# Vscode Plugin Coverage Gutters
+cov.xml
+
 # Temporary files
 tmp/
