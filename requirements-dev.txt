@@ -1,8 +1,4 @@
-pytest
-pytest-cov
-flake8
-flake8-bugbear
 black
 isort
-mypy
 devtools[pygments]
+rope

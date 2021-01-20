@@ -1,4 +1,4 @@
-.PHONY: test dev format lint type_checking install all
+.PHONY: install_dev install_test install format lint type_checking test cicd
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -18,13 +18,17 @@ clean:
 	find . -type d -name .pytest_cache -exec rm -r {} +
 	find . -type d -name .mypy_cache -exec rm -r {} +
 
-## Execute unit tests
-test:
-	python -m pytest
-
 ## Install develop environment.
-dev:
+install_dev:
 	pip install -r requirements-dev.txt
+
+## Install test Environment
+install_test:
+	pip install -r requirements-test.txt
+
+## Install locally in editable mode
+install:
+	pip install -e .
 
 ## Run black & isort formatting
 format:
@@ -39,17 +43,16 @@ lint:
 type_checking:
 	python -m mypy
 
-## Install visions locally in editable mode
-install:
-	pip install -e .
+## Execute unit tests
+test:
+	python -m pytest
 
-## format, lint, type check, install, and finally test
-all:
-	make dev
-	make format
+## CICD lint, type check, install, and finally test
+cicd:
+	make install_test
+	make install
 	make lint
 	make type_checking
-	make install
 	make test
 
 #################################################################################

@@ -21,14 +21,6 @@ with open(here / "src/sample/__about__.py") as fp:
 with open(here / "requirements.txt") as fp:
     install_dependencies = fp.readlines()
 
-# extra requirements.
-with open(here / "requirements-dev.txt") as fp:
-    dev_requirements = fp.readlines()
-
-
-extras_requirements = {
-    "dev": dev_requirements,
-}
 
 # “必填” 表示必须填写才能上传 PyPI。
 # “可选” 表示可以注释不填写。
@@ -127,7 +119,7 @@ setup(
     #
     #   $ pip install sampleproject[dev]
     #
-    extras_require=extras_requirements,  # 可选
+    # extras_require=extras_requirements,  # 可选
     # 如果有一些其他的数据文件需要和项目一起打包，则需要在这里指定。
     # package_data={  # 可选
     #     'sample': ['package_data.dat'],
